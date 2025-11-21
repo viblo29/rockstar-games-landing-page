@@ -1,0 +1,10 @@
+@import "tailwindcss";
+*{
+    box-sizing: border-box;
+    font-family: "Helvetica Now Display", Helvetica, sans-serif;
+}
+body{
+    background-color: #101010;
+    color: white;
+    letter-spacing: -1.1%;
+}
