@@ -4,7 +4,15 @@ function Banner() {
   return (
     <>
         <div className='mb-20 w-full flex justify-center'>
-            <img style={{maxWidth:"1440px", height:"796px"}} src={gtaBanner} alt="" />
+            <div style={{
+            backgroundImage: `url(${gtaBanner})`, 
+            width: "1440px",
+            height: "796px",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            }}></div>
+
         </div>
     </>
   )
