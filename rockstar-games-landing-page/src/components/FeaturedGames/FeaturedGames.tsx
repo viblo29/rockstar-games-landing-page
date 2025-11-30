@@ -48,13 +48,12 @@ function FeaturedGames() {
 
         <div className="hidden xl:flex flex-col items-center w-full">
           <div className="mb-16 flex gap-10 flex-wrap justify-center">
-            {/* Show first 4 items */}
             {gamesData.slice(0, 4).map((game) => (
                <GameCard key={game.id} src={game.src} alt={game.alt} />
             ))}
             
             {showMore && gamesData.slice(4).map((game) => (
-               <div key={game.id} className="animate-in fade-in duration-500">
+               <div key={game.id} className="animate-[fadeIn_0.5s_ease-in_forwards]">
                   <GameCard src={game.src} alt={game.alt} />
                </div>
             ))}
