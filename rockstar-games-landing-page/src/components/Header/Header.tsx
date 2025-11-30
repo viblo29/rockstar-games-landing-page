@@ -5,6 +5,33 @@ import searchIcon from '../../../public/search-icon.svg'
 import Button from '../Button/Button'
 import { LogoIcon } from '../SocialIcons/SocialIcons'
 
+type HamburgerButtonProps = {
+  isOpen: boolean;
+  onClick: () => void;
+};
+
+const HamburgerButton = ({ isOpen, onClick }: HamburgerButtonProps) => {
+  return (
+    <button 
+      className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 z-[70] relative xl:hidden" 
+      onClick={onClick}
+      aria-label="Toggle menu"
+    >
+      <span className={`block h-0.5 w-8 bg-white rounded-full transition-all duration-300 ease-in-out origin-center ${
+        isOpen ? 'rotate-45 translate-y-2' : ''
+      }`}></span>
+      
+      <span className={`block h-0.5 w-8 bg-white rounded-full transition-all duration-300 ease-in-out ${
+        isOpen ? 'opacity-0' : 'opacity-100'
+      }`}></span>
+      
+      <span className={`block h-0.5 w-8 bg-white rounded-full transition-all duration-300 ease-in-out origin-center ${
+        isOpen ? '-rotate-45 -translate-y-2' : ''
+      }`}></span>
+    </button>
+  );
+};
+
 function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -17,17 +44,9 @@ function Header() {
     'LA Noire'
   ]
 
-  const MenuIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-    </svg>
-  );
-
-  const CloseIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  );
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  }
 
   return (
     <div className='w-full flex justify-center sticky top-0 z-50 bg-[#020202]'>
@@ -76,21 +95,16 @@ function Header() {
                 </div>
             </div>
 
-            <button 
-              className="block xl:hidden"
-              onClick={() => setIsMobileMenuOpen(true)}
-            >
-               <MenuIcon />
-            </button>
+            <HamburgerButton 
+                isOpen={isMobileMenuOpen} 
+                onClick={toggleMenu} 
+            />
         </div>
 
         {isMobileMenuOpen && (
             <div className="fixed inset-0 bg-[#020202] z-60 flex flex-col p-6 animate-in slide-in-from-right duration-300 xl:hidden">
                 <div className="flex justify-between items-center mb-10">
                     <LogoIcon className="w-10 h-10 text-white" />
-                    <button onClick={() => setIsMobileMenuOpen(false)}>
-                        <CloseIcon />
-                    </button>
                 </div>
 
                 <div className="flex flex-col gap-6 text-xl font-medium">

@@ -35,7 +35,7 @@ function GameLauncher() {
             </div>
           </div>
 
-          <div className="w-[70%] max-w-[350px] xl:max-w-none xl:w-auto xl:pr-10">
+          <div className="w-[70%] max-w-[350px] xl:max-w-none xl:w-auto">
 
             <img 
                 src={gamesLauncher2} 
