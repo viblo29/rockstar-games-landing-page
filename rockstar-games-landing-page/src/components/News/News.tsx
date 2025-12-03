@@ -8,7 +8,7 @@ function News() {
     <div className="w-full flex justify-center pb-20">
       <div className="mt-16 xl:mt-28 px-4 xl:px-0 w-full max-w-[1160px] flex flex-col gap-10">
         <div className="font-extrabold text-[32px] xl:text-[48px] text-center xl:text-left">
-            Últimas Notícias
+          Últimas Notícias
         </div>
         <div className="flex flex-col xl:flex-row gap-6 xl:gap-10">
           <div className="w-full xl:w-auto">

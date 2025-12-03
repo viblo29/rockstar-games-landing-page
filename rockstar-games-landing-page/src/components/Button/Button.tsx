@@ -2,13 +2,13 @@ interface ButtonProps {
   text: string;
   h: string;
   w: string;
-  font: string
+  font: string;
 }
 
 function Button({ text, h, w, font }: ButtonProps) {
   return (
     <button
-      style={{ width: w, height: h , fontWeight: font}}
+      style={{ width: w, height: h, fontWeight: font }}
       className={`
         bg-[#FCAF17] 
         text-[#020202] 
